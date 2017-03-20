@@ -1,0 +1,2 @@
+resource_registry:
+  OS::TripleO::Services::Barometer: ../puppet/services/barometer.yaml
