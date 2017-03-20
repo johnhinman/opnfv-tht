@@ -107,6 +107,7 @@
   CountDefault: 1
   HostnameFormatDefault: '%stackname%-novacompute-%index%'
   ServicesDefault:
+    - OS::TripleO::Services::Barometer
     - OS::TripleO::Services::CACerts
     - OS::TripleO::Services::CephClient
     - OS::TripleO::Services::CephExternal
