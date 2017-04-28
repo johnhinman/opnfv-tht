@@ -24,6 +24,10 @@ parameters:
     default: {}
     description: the password for the ceilometer service account
     type: string
+  GnocchiPassword:
+    default: {}
+    description: the password for the gnocchi service account
+    type: string
 
 outputs:
   role_data:
@@ -31,9 +35,9 @@ outputs:
     value:
       service_name: barometer
       config_settings:
-        barometer::collectd::public_url: {get_param: [EndpointMap, CeilometerPublic, uri]}
-        barometer::collectd::ceilo_password: {get_param: CeilometerPassword}
-        barometer::collectd::ceilo_username: 'ceilometer'
+        barometer::collectd::collectd_password: {get_param: GnocchiPassword}
+        barometer::collectd::collectd_username: 'gnocchi'
+        barometer::collectd::auth_url: {get_param: [EndpointMap, KeystoneInternal, uri_no_suffix]}
       step_config: |
         include ::tripleo::profile::base::barometer
 
